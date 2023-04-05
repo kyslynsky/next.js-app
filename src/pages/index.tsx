@@ -3,7 +3,7 @@ import { layoutWrapping } from "@/layout";
 import { useState } from "react";
 import { GetStaticProps } from "next";
 import axios from "axios";
-import { MenuItem } from "../../interfaces/menu.interface";
+import { MenuItem } from "@/interfaces";
 
 function Home({ menu, firstCategory }: HomeProps): JSX.Element {
   const [rating, setRating] = useState<number>(4);

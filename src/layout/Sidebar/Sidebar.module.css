@@ -1,0 +1,12 @@
+.sidebar {
+  display: grid;
+  align-content: start;
+  gap: 20px;
+}
+
+.logo {
+  margin-top: 20px;
+  font-family: var(--logo-font);
+  font-size: 42px;
+  color: var(--primary);
+}

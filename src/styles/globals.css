@@ -36,17 +36,19 @@
 
 :root {
   --primary-font: "Roboto", sans-serif;
-  --black: #3B434E;
-  --white: #FFF;
-  --primary: #48C9B0;
-  --primary-hover: #05AB8A;
-  --orange: #FC836D;
-  --green: #1DC37E;
-  --green-light: #C8F8E4;
-  --bg-light: #E5E5E5;
-  --grey-light: #EBEBEB;
-  --grey: #B3C0D9;
-  --red: #DE0000;
+  --logo-font: "Righteous", sans-serif;
+  --black: #3b434e;
+  --white: #fff;
+  --primary: #48c9b0;
+  --primary-hover: #05ab8a;
+  --orange: #fc836d;
+  --green: #1dc37e;
+  --green-light: #c8f8e4;
+  --bg-light: #e5e5e5;
+  --grey-light: #ebebeb;
+  --grey: #b3c0d9;
+  --grey-dark: #787d85;
+  --red: #de0000;
   --animation: all 0.2s;
 }
 
@@ -63,9 +65,12 @@ body {
   max-width: 100vw;
 
   font-family: var(--primary-font);
-  color: var(--black);
+  color: var(--white);
+  /* color: #171717; */
 
-  background-color: var(--bg-light);
+  /* background-color: var(--bg-light); */
+  background-color: #171717;
+  /* background-color: var(--primary); */
 }
 
 li {
