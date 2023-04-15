@@ -1,8 +1,8 @@
 import { IHhData } from "./HhData.props";
 import styles from "./HhData.module.css";
-import cn from "classnames";
 import { Card } from "..";
 import RateIco from "./rate.svg";
+import { priceFormatter } from "@/helpers";
 
 export const HhData = ({ count, juniorSalary, middleSalary, seniorSalary }: IHhData): JSX.Element => {
   return (
@@ -14,7 +14,7 @@ export const HhData = ({ count, juniorSalary, middleSalary, seniorSalary }: IHhD
       <Card className={styles.salary}>
         <div>
           <div className={styles.title}>Junior</div>
-          <div className={styles.salaryValue}>{juniorSalary}</div>
+          <div className={styles.salaryValue}>{priceFormatter(juniorSalary)}</div>
           <div className={styles.rate}>
             <RateIco className={styles.filled} />
             <RateIco />
@@ -23,7 +23,7 @@ export const HhData = ({ count, juniorSalary, middleSalary, seniorSalary }: IHhD
         </div>
         <div>
           <div className={styles.title}>Middle</div>
-          <div className={styles.salaryValue}>{middleSalary}</div>
+          <div className={styles.salaryValue}>{priceFormatter(middleSalary)}</div>
           <div className={styles.rate}>
             <RateIco className={styles.filled} />
             <RateIco className={styles.filled} />
@@ -32,7 +32,7 @@ export const HhData = ({ count, juniorSalary, middleSalary, seniorSalary }: IHhD
         </div>
         <div>
           <div className={styles.title}>Senior</div>
-          <div className={styles.salaryValue}>{seniorSalary}</div>
+          <div className={styles.salaryValue}>{priceFormatter(seniorSalary)}</div>
           <div className={styles.rate}>
             <RateIco className={styles.filled} />
             <RateIco className={styles.filled} />

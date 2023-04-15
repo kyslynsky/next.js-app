@@ -1,0 +1,25 @@
+.sort {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 40px;
+  cursor: pointer;
+}
+
+.sort span {
+  display: flex;
+  align-items: center;
+}
+
+.sortIco {
+  display: none;
+}
+
+.active {
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.active .sortIco {
+  display: block;
+  margin-right: 8px;
+}

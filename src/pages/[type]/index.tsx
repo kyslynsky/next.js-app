@@ -1,8 +1,7 @@
 import { layoutWrapping } from "@/layout";
-
 import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from "next";
 import axios from "axios";
-import { MenuItem, TopLevelCategory } from "@/interfaces";
+import { MenuItem } from "@/interfaces";
 import { firstLevelMenu } from "@/helpers";
 import { ParsedUrlQuery } from "querystring";
 
@@ -38,25 +37,19 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({ params }: GetS
     };
   }
 
-  try {
-    const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find", {
-      firstCategory: firstCategoryItem._id,
-    });
+  const { data: menu } = await axios.post<MenuItem[]>(process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find", {
+    firstCategory: firstCategoryItem._id,
+  });
 
-    return {
-      props: {
-        menu,
-        firstCategory: firstCategoryItem._id,
-      },
-    };
-  } catch (error) {
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: {
+      menu,
+      firstCategory: firstCategoryItem._id,
+    },
+  };
 };
 
 interface TypeProps extends Record<string, unknown> {
   menu: MenuItem[];
-  firstCategory: TopLevelCategory;
+  firstCategory: number;
 }

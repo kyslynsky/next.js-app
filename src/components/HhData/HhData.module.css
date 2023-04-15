@@ -59,7 +59,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 856px) {
   .salary {
     grid-template-columns: 1fr;
     gap: 20px 0;

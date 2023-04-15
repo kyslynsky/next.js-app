@@ -25,6 +25,7 @@
 }
 
 .ghost {
+  color: var(--white);
   background-color: transparent;
   border: 1px solid var(--grey);
 }
@@ -45,8 +46,3 @@
   transform: rotate(90deg);
 }
 
-.primary svg,
-.ghost:hover svg,
-.ghost:focus svg {
-  fill: var(--white);
-}
