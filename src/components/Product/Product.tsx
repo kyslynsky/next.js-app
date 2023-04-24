@@ -1,11 +1,78 @@
+import Image from "next/image";
+import cn from "classnames";
 import { IProduct } from "./Product.props";
 import styles from "./Product.module.css";
-import cn from "classnames";
+import { Card } from "../Card/Card";
+import { Tag } from "../Tag/Tag";
+import { Rating } from "../Rating/Rating";
+import { Button } from "../Button/Button";
+import { priceFormatter } from "../../helpers/helpers";
+import { Divider } from "../Divider/Divider";
+import { pluralize } from "../../helpers";
 
 export const Product = ({ product, className, ...props }: IProduct): JSX.Element => {
   return (
-    <div>
-      {product.title}
-    </div>
+    <Card className={styles.product}>
+      <div className={styles.logo}>
+        <Image className={styles.logo} src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} width={70} height={70} />
+      </div>
+      <div className={styles.title}>{product.title}</div>
+      <div className={styles.price}>
+        {priceFormatter(product.price)}
+        {product.oldPrice && (
+          <Tag className={styles.oldPrice} color="green" size="m">
+            {priceFormatter(product.price - product.oldPrice)}
+          </Tag>
+        )}
+      </div>
+      <div className={styles.credit}>{priceFormatter(product.credit)}/per month</div>
+      <div className={styles.rating}>
+        <Rating rating={product.reviewAvg ?? product.initialRating}> </Rating>
+      </div>
+      <div className={styles.tags}>
+        {product.categories.map(c => (
+          <Tag className={styles.category} color="transparent" size="m" key={c}>
+            {c}
+          </Tag>
+        ))}
+      </div>
+      <div className={styles.priceTitle}>Price</div>
+      <div className={styles.creditTitle}>Credit</div>
+      <div className={styles.rateTitle}>{pluralize(product.reviewCount, "Review")}</div>
+      <Divider className={styles.hr} />
+
+      <div className={styles.description}>{product.description}</div>
+      <div className={styles.feature}>
+        {product.characteristics.map(c => (
+          <div key={c.name} className={styles.characteristics}>
+            <span className={styles.characteristicsName}>{c.name}</span>
+            <span className={styles.characteristicsDots}></span>
+            <span className={styles.characteristicsValue}>{c.value}</span>
+          </div>
+        ))}
+      </div>
+      <div className={styles.advBlock}>
+        {product.advantages && (
+          <div className={styles.advantages}>
+            <h4 className={styles.advTitle}>Advantages</h4>
+            <div>{product.advantages}</div>
+          </div>
+        )}
+        {product.disadvantages && (
+          <div className={styles.disadvantages}>
+            <h4 className={styles.advTitle}>Disadvantages</h4>
+            <div>{product.disadvantages}</div>
+          </div>
+        )}
+      </div>
+      <Divider className={cn(styles.hr, styles.hr2)} />
+
+      <div className={styles.actions}>
+        <Button appearence="primary">More informaton</Button>
+        <Button className={styles.reviewBtn} appearence="ghost" arrow="rigth">
+          Read reviews
+        </Button>
+      </div>
+    </Card>
   );
 };
