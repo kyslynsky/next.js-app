@@ -32,8 +32,8 @@ export const firstLevelMenu: IMenu[] = [
 ];
 
 export const priceFormatter = (price: number): string => {
-  return price
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, " ")
-    .concat(" VET");
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 };
+
+export const pluralize = (count: number, noun: string, suffix = "s"): string =>
+  `${count} ${noun}${count !== 1 ? suffix : ""}`;

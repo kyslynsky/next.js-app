@@ -30,14 +30,16 @@ export const Menu = (): JSX.Element => {
         {firstLevelMenu.map(m => (
           <div key={m._id}>
             <Link href={`/${m.route}`}>
-              <div
-                className={cn(styles.firstLevel, {
-                  [styles.firstLevelActive]: m._id === firstCategory,
-                })}
-              >
-                {m.icon}
-                <span>{m.name}</span>
-              </div>
+              <a>
+                <div
+                  className={cn(styles.firstLevel, {
+                    [styles.firstLevelActive]: m._id === firstCategory,
+                  })}
+                >
+                  {m.icon}
+                  <span>{m.name}</span>
+                </div>
+              </a>
             </Link>
             {m._id === firstCategory && buildSecondLevel(m)}
           </div>
@@ -75,14 +77,14 @@ export const Menu = (): JSX.Element => {
 
   const buildThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map(p => (
-      <Link
-        key={p._id}
-        href={`/${route}/${p.alias}`}
-        className={cn(styles.thirdLevel, {
-          [styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
-        })}
-      >
-        {p.category}
+      <Link key={p._id} href={`/${route}/${p.alias}`}>
+        <a
+          className={cn(styles.thirdLevel, {
+            [styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath,
+          })}
+        >
+          {p.category}
+        </a>
       </Link>
     ));
   };
