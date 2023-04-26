@@ -2,7 +2,12 @@
 
 const nextConfig = {
   images: {
-    domains: ["courses-top.ru"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "**",
+      },
+    ],
   },
   webpack(config) {
     const fileLoaderRule = config.module.rules.find(rule => rule.test?.test?.(".svg"));

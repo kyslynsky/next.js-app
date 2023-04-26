@@ -20,7 +20,8 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        <HTag tag="h1">{page.title}</HTag>
+        {/* <HTag tag="h1">{page.title}</HTag> */}
+        <HTag tag="h1">Courses</HTag>
         {products && (
           <Tag size="m" color="grey">
             {products.length}
@@ -30,24 +31,25 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
       </div>
       <div>{sortedProducts && sortedProducts.map(p => <Product product={p} key={p._id} />)} </div>
       <div className={styles.hhTitle}>
-        <HTag tag="h2">Vacancies - {page.category}</HTag>
+        {/* <HTag tag="h2">Vacancies - {page.category}</HTag> */}
+        <HTag tag="h2">Vacancies</HTag>
         <Tag size="s" color="red">
           hh.net
         </Tag>
       </div>
       {firstCategory === TopLevelCategory.Courses && page.hh && <HhData {...page.hh} />}
-      {page.advantages && page.advantages.length > 1 && (
+      {/* {page.advantages && page.advantages.length > 1 && (
         <>
           <HTag tag="h2">Advantages</HTag>
           <Advatages advantages={page.advantages} />
         </>
-      )}
-      <HTag tag="h2">Tags</HTag>
+      )} */}
+      {/* <HTag tag="h2">Tags</HTag>
       {page.tags.map(t => (
         <Tag color="primary" size="s" key={t}>
           {t}
         </Tag>
-      ))}
+      ))} */}
     </div>
   );
 };
