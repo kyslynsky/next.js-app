@@ -1,7 +1,7 @@
 .product {
   display: grid;
   grid-template-columns: [start] 70px [logoend] 30px [titlestart] calc(50% - 100px) [middle] auto [pricestart] auto [priceend] 20px [creditstart] auto [creditend] 20px [ratestart] auto [end];
-  margin-bottom: 30px;
+  margin-top: 30px;
   padding: 30px;
 }
 
@@ -91,6 +91,10 @@
   color: #97a0aa;
 }
 
+.rateTitle a {
+  color: var(--primary);
+}
+
 .reviewBtn {
   margin-left: 20px;
 }
@@ -135,6 +139,23 @@
 .characteristicsDots {
   border-bottom: 1px dashed var(--grey);
   margin-bottom: 5px;
+}
+
+.reviews {
+  border-top: none;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.opened {
+  max-height: auto;
+  padding: 30px;
+}
+
+.closed {
+  overflow: hidden;
+  max-height: 0;
+  padding: 0;
+  border: none;
 }
 
 @media screen and (max-width: 1400px) {
