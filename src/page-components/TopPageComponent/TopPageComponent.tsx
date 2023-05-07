@@ -1,4 +1,4 @@
-import { HTag, Tag, HhData, Advatages, Sort, Product } from "@/components";
+import { HTag, Tag, HhData, Sort, Product } from "@/components";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
@@ -21,7 +21,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
     <div className={styles.wrapper}>
       <div className={styles.title}>
         {/* <HTag tag="h1">{page.title}</HTag> */}
-        <HTag tag="h1">Courses</HTag>
+        <HTag tag="h1">Courses </HTag>
         {products && (
           <Tag size="m" color="grey">
             {products.length}
