@@ -1,10 +1,11 @@
-import { HTag, Tag, HhData, Advatages, Sort, Product } from "@/components";
+import { HTag, Tag, HhData, Sort, Product } from "@/components";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
 import { TopLevelCategory } from "@/interfaces";
 import { useEffect, useReducer } from "react";
 import { sortReducer } from "./sort.reducer";
+import { motion } from "framer-motion";
 
 export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
   const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
@@ -21,7 +22,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
     <div className={styles.wrapper}>
       <div className={styles.title}>
         {/* <HTag tag="h1">{page.title}</HTag> */}
-        <HTag tag="h1">Courses</HTag>
+        <HTag tag="h1">Courses </HTag>
         {products && (
           <Tag size="m" color="grey">
             {products.length}
@@ -29,7 +30,14 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
         )}
         <Sort sort={sort} setSort={handleSort} />
       </div>
-      <div>{sortedProducts && sortedProducts.map(p => <Product product={p} key={p._id} />)} </div>
+      <>
+        {sortedProducts &&
+          sortedProducts.map(p => (
+            <motion.div key={p._id} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+              <Product layout product={p} key={p._id} />
+            </motion.div>
+          ))}
+      </>
       <div className={styles.hhTitle}>
         {/* <HTag tag="h2">Vacancies - {page.category}</HTag> */}
         <HTag tag="h2">Vacancies</HTag>

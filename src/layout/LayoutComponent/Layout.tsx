@@ -1,10 +1,10 @@
+import { FunctionComponent } from "react";
 import { ILayout } from "./Layout.props";
 import styles from "./Layout.module.css";
-// import cn from "classnames";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { Sidebar } from "../Sidebar";
-import { FunctionComponent } from "react";
+import { Up } from "@/components";
 import { AppContextProvider, IAppContext } from "../../context";
 
 const Layout = ({ children }: ILayout): JSX.Element => {
@@ -14,6 +14,7 @@ const Layout = ({ children }: ILayout): JSX.Element => {
       <Sidebar className={styles.sidebar} />
       <div className={styles.main}>{children}</div>
       <Footer className={styles.footer} />
+      <Up />
     </div>
   );
 };
