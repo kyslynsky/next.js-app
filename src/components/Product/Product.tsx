@@ -105,6 +105,7 @@ export const Product = motion(
         <Card
           ref={reviewRef}
           color="accent"
+          layout
           className={cn(styles.reviews, {
             [styles.opened]: isReviewOpened,
             [styles.closed]: !isReviewOpened,
@@ -120,4 +121,4 @@ export const Product = motion(
   })
 );
 
-Product.displayName = "Motion";
+Product.displayName = "MotionProduct";
