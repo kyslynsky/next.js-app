@@ -1,4 +1,4 @@
-import { HTag, Tag, HhData, Sort, Product } from "@/components";
+import { HTag, Tag, HhData, Sort, Product, Advatages } from "@/components";
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import styles from "./TopPageComponent.module.css";
@@ -21,8 +21,7 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
   return (
     <div className={styles.wrapper}>
       <div className={styles.title}>
-        {/* <HTag tag="h1">{page.title}</HTag> */}
-        <HTag tag="h1">Courses </HTag>
+        <HTag tag="h1">{page.title}</HTag>
         {products && (
           <Tag size="m" color="grey">
             {products.length}
@@ -39,25 +38,24 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
           ))}
       </>
       <div className={styles.hhTitle}>
-        {/* <HTag tag="h2">Vacancies - {page.category}</HTag> */}
-        <HTag tag="h2">Vacancies</HTag>
+        <HTag tag="h2">Vacancies - {page.category}</HTag>
         <Tag size="s" color="red">
           hh.net
         </Tag>
       </div>
       {firstCategory === TopLevelCategory.Courses && page.hh && <HhData {...page.hh} />}
-      {/* {page.advantages && page.advantages.length > 1 && (
+      {page.advantages && page.advantages.length > 1 && (
         <>
           <HTag tag="h2">Advantages</HTag>
           <Advatages advantages={page.advantages} />
         </>
-      )} */}
-      {/* <HTag tag="h2">Tags</HTag>
+      )}
+      <HTag tag="h2">Tags</HTag>
       {page.tags.map(t => (
         <Tag color="primary" size="s" key={t}>
           {t}
         </Tag>
-      ))} */}
+      ))}
     </div>
   );
 };

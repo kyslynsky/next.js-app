@@ -8,7 +8,7 @@ import { TopPageComponent } from "@/page-components";
 import { API } from "@/helpers/api";
 
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
-  return <TopPageComponent firstCategory={firstCategory} page={page} products={products} />;
+  return <>{page && products && <TopPageComponent firstCategory={firstCategory} page={page} products={products} />}</>;
 }
 
 export default layoutWrapping(TopPage);
